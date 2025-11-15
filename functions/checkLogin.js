@@ -76,10 +76,27 @@ function deleteUser(username, password) {
         message: "ลบผู้ใช้สำเร็จ"
     };
 }
+// ฟังก์ชันดึงผู้ใช้ทั้งหมด
+function getAllUsers() {
+    return { status: 200, users };
+}
+
+// ฟังก์ชันดึงผู้ใช้ทีละคน
+function getUser(username) {
+    const user = users.find(u => u.username === username);
+
+    if (!user) {
+        return { status: 404, message: "ไม่พบข้อมูลผู้ใช้" };
+    }
+
+    return { status: 200, user };
+}
 
 module.exports = {
     checkLogin,
     registerUser,
     resetPassword,
-    deleteUser
+    deleteUser,
+    getUser,
+    getAllUsers,
 };

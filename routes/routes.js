@@ -4,13 +4,17 @@ const router = express.Router();
 const login = require('../controller/user/login');
 const register = require('../controller/user/register');
 const resetpassword = require('../controller/user/resetpassword');
-const deleteUser = require('../controller/user/delete')
+const deleteUser = require('../controller/user/delete');
+const getallUsers = require('../controller/user/getalluse');
+const getUser = require('../controller/user/getUser');
 
 
 router.post('/login', login);
 router.post('/register', register);
 router.post('/resetpassword', resetpassword);
 router.delete('/delete', deleteUser);
+router.get('/getallusers', getallUsers);
+router.get('/getuser', getUser);
 
 
 module.exports = router;
